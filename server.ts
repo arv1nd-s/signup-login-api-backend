@@ -4,6 +4,7 @@ import { serverPort, databaseUrl } from './config/config';
 import signup from './controllers/signup.controller';
 import login from './controllers/login.controller';
 import refreshToken from './controllers/refreshToken.controller';
+import deleteUser from './controllers/deleteUser.controller';
 
 const app = express();
 app.use(express.json());
@@ -19,6 +20,9 @@ app.post('/login', login);
 
 // Refresh token route
 app.post('/refresh-token', refreshToken);
+
+// Delete user route
+app.delete('/delete-user/', deleteUser);
 
 // Start the server
 app.listen(serverPort, () => {
