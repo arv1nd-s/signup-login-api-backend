@@ -3,6 +3,7 @@ import mongoose, { model } from 'mongoose';
 import { serverPort, databaseUrl } from './config/config';
 import signup from './controllers/signup.controller';
 import login from './controllers/login.controller';
+import refreshToken from './controllers/refreshToken.controller';
 
 const app = express();
 app.use(express.json());
@@ -16,6 +17,8 @@ app.post('/signup', signup);
 // Login route
 app.post('/login', login);
 
+// Refresh token route
+app.post('/refresh-token', refreshToken);
 
 // Start the server
 app.listen(serverPort, () => {
